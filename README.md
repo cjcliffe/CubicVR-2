@@ -19,4 +19,4 @@ Dreamcast and PSP support will no longer be emulated using OpenGL wrappers for t
 
 Native toolsets and formats will no longer be a primary goal as before; open source tools and formats such as Blender and COLLADA will be the focus for importing content.  
 
-CubicVR's existing DataTree will be used more extensivly to provide 1-1 translation and interchangability of XML, JSON, Native Binary and Compressed Binaries (FastLZ).
+CubicVR's existing DataTree will be used more extensively to provide 1-1 translation and interchangability of XML, JSON, Native Binary and Compressed Binaries (FastLZ).
