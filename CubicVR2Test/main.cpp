@@ -13,7 +13,7 @@
 #include "ShaderRenderTest.h"
 //#include <GLUT/GLUT.h>
 #define GLFW_INCLUDE_GL3
-#include <GL/glfw.h>
+#include <GLFW/glfw3.h>
 
 int main(int argc, char * argv[])
 {
@@ -26,14 +26,21 @@ int main(int argc, char * argv[])
     if (!glfwInit())
         return -1;
 
-    glfwOpenWindowHint(GLFW_OPENGL_VERSION_MAJOR, 3);
-    glfwOpenWindowHint(GLFW_OPENGL_VERSION_MINOR, 2);
-    glfwOpenWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    glfwOpenWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     
+    GLFWwindow *window = glfwCreateWindow(640, 480, "CubicVR-2 Test", NULL, NULL);
     
-    if (!glfwOpenWindow(640, 480, 8, 8, 8, 0, 24, 0, GLFW_WINDOW))
+    if (!window)
+    {
+        glfwTerminate();
         return -1;
+    }
+    
+    glfwMakeContextCurrent(window);
+
    
     MathTest test1;
     
@@ -49,10 +56,13 @@ int main(int argc, char * argv[])
     
     ShaderRenderTest test4;
     
-    test4.run();
+    test4.run(window);
 
     // insert code here...
     std::cout << endl << "-----" << endl << "Done." << endl;
+    
+    glfwTerminate();
+
     return 0;
 }
 

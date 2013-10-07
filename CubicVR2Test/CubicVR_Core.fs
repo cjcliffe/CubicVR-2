@@ -1,7 +1,7 @@
 
 
 #ifndef varying
-#define varying out
+#define varying in
 #endif
 
 #ifndef attribute

@@ -14,10 +14,10 @@
 #include "Material.h"
 #include "Mesh.h"
 #include "Camera.h"
-#include <GL/glfw.h>
+#include <GLFW/glfw3.h>
 
 //#include <GLUT/glut.h>
-#pragma once;
+#pragma once
 
 namespace CubicVR {
     
@@ -42,9 +42,9 @@ namespace CubicVR {
             testCam.setPosition(vec3(1.5f*sinf((float)i/100.0f),1.5f*sinf(i/100.0f),1.5f*cosf((float)i/100.0f)));
             testCam.calcProjection();
             mat.setMatrixModelView(testCam.getMatrixModelView());
-            mat.setMatrixProjection(testCam.getMatrixProjection()); //
+            mat.setMatrixProjection(testCam.getMatrixProjection());
 
-            mat.use(LIGHT_NONE,0);
+            mat.use(LIGHT_NONE,0,&testMesh);
             checkError(11);
             
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,testMesh.getVBO()->gl_elements);
@@ -56,20 +56,8 @@ namespace CubicVR {
         
         
         
-        void run() {
+        void run(GLFWwindow *window) {
             Material::coreShader.loadTextFile("CubicVR_Core.vs", "CubicVR_Core.fs");
-
-//            testShader.loadTextFile("CubicVR_Core.vs", "CubicVR_Core.fs");
-////            testShader.loadTextFile("CubicVR_TestShader.vert", "CubicVR_TestShader.frag");
-//            if (!testShader.compile()) {
-//                testShader.dumpShaderLog();
-//            } else {
-//                cout << "Shader compile success." << endl;
-//                shaderVariables vars;
-//                testShader.getVariables(vars);
-//                vars.dump();
-//            }
-            
             
             testCam.setDimensions(640,480);
             testCam.setFOV(60);
@@ -86,42 +74,31 @@ namespace CubicVR {
             
             testMesh.prepare();
 
-            // Register callbacks:
-//            glutDisplayFunc(display);
-
 //            mat.initShader(&testShader);
             
             mat.setMatrixModelView(testCam.getMatrixModelView());
             mat.setMatrixProjection(testCam.getMatrixProjection()); // 
             mat.setMatrixObject(mat4::identity());
-            mat.setColor(vec3(1,1,1));
+            mat.setColor(vec3(0,0,0));
             mat.setDiffuse(vec3(1,1,1));
             mat.setAmbient(vec3(1,1,1));
             mat.setVertexPosition(testMesh.getVBO()->gl_points);
             mat.setVertexNormal(testMesh.getVBO()->gl_normals);
-//            mat.setVertexColor(testMesh.getVBO()->gl_colors);
+            mat.setVertexColor(testMesh.getVBO()->gl_colors);
             
                                   
-            while (glfwGetWindowParam(GLFW_OPENED))
+            while (!glfwWindowShouldClose(window))
             {
                 /* Render here */
                 
                 /* Swap front and back buffers and process events */
                 display();
-                glfwSwapBuffers();
+                glfwSwapBuffers(window);
+                glfwPollEvents();
             }
 
 //            glGenVertexArrays(1, &vao);
-            
-            
-            //            glutReshapeFunc (reshape);
-            //            glutKeyboardFunc (Keyboard);
-            //            glutMouseFunc (MouseButton);
-            //            glutMotionFunc (MouseMotion);
-            //            glutIdleFunc (AnimateScene);
-            
-            // Turn the flow of control over to GLUT
-//            glutMainLoop();
+
         }
     };
 }

@@ -13,8 +13,10 @@
 #include "Shader.h"
 #include "CoreShader.h"
 
+
 namespace CubicVR {
-    
+    class Mesh;
+
     class Material {
     public:
         static CoreShader coreShader;
@@ -100,7 +102,7 @@ namespace CubicVR {
         }
         
         unsigned int computeMask() {
-            
+            mask = 0;
 //            if (textureColor.get()!=-1) mask += SHADER_TEXTURE_COLOR;
 //            if (textureSpecular.get()!=-1) mask += SHADER_TEXTURE_SPECULAR;
 //            if (textureNormal.get()!=-1) mask += SHADER_TEXTURE_NORMAL;
@@ -119,11 +121,19 @@ namespace CubicVR {
             return mask;
         }
         
-        void use(light_enum lightType, unsigned short lightCount) {
+        unsigned int computeMeshMask(Mesh *meshObj);
+        
+        
+        void use(light_enum lightType, unsigned short lightCount, Mesh *meshObj) {
             if (mask == 0) {
                 mask = computeMask();
-                shaderInst = coreShader.getShaderInstance(lightType, lightCount, mask);
             }
+            
+            if (meshObj != NULL) {
+                mask |= computeMeshMask(meshObj);
+            }
+            
+            shaderInst = coreShader.getShaderInstance(lightType, lightCount, mask);
             shaderInst->shader->use();
             shaderInst->values->setValues(this);
             shaderInst->values->update(shaderInst->shader);

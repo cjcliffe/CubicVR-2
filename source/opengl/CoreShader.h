@@ -218,7 +218,7 @@ namespace CubicVR {
                 
                 vector<shaderDef>::iterator defs_i;
                 for (defs_i = defs.begin(); defs_i != defs.end(); defs_i++) {
-                    if ((*defs_i).mask && mask) {
+                    if ((*defs_i).mask & mask) {
                         headerStr << "#define " << (*defs_i).name << " 1" << endl;
                     } else {
                         headerStr << "#define " << (*defs_i).name << " 0" << endl;
