@@ -23,6 +23,9 @@ namespace CubicVR {
     #define intSG(c, x,y) \
         int COMBINE(get,x)() { return y; } \
         c & COMBINE(set,x)(int value) { y = value; return *this; }
+    #define lightEnumSG(c, x,y) \
+        light_enum COMBINE(get,x)() { return y; } \
+        c & COMBINE(set,x)(light_enum value) { y = value; return *this; }
     #define uintSG(c, x,y) \
         unsigned int COMBINE(get,x)() { return y; } \
         c & COMBINE(set,x)(unsigned int value) { y = value; return *this; }

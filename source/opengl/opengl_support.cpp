@@ -1,4 +1,4 @@
-#include "opengl_support.h"
+#include "opengl/opengl_support.h"
 #include <iostream>
 
 namespace CubicVR {

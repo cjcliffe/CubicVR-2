@@ -10,10 +10,10 @@
 #define __CubicVR2__ShaderRenderTest__
 
 #include <iostream>
-#include "Shader.h"
-#include "Material.h"
-#include "Mesh.h"
-#include "Camera.h"
+#include "opengl/Shader.h"
+#include "opengl/Material.h"
+#include "core/Mesh.h"
+#include "core/Camera.h"
 #define GLFW_INCLUDE_GLCOREARB
 #include <GLFW/glfw3.h>
 

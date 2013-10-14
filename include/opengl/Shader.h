@@ -15,12 +15,12 @@
 #include <vector>
 
 #include "opengl_support.h"
-#include "types.h"
-#include "vec2.h"
-#include "vec3.h"
-#include "vec4.h"
-#include "mat3.h"
-#include "mat4.h"
+#include "math/types.h"
+#include "math/vec2.h"
+#include "math/vec3.h"
+#include "math/vec4.h"
+#include "math/mat3.h"
+#include "math/mat4.h"
 //#include "GLUT/glut.h"
 
 namespace CubicVR {

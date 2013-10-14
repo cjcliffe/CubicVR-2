@@ -11,10 +11,10 @@
 
 #include <iostream>
 #include "opengl_support.h"
-#include "mat4.h"
-#include "Camera.h"
-#include "Mesh.h"
-#include "Light.h"
+#include "math/mat4.h"
+#include "core/Camera.h"
+#include "core/Mesh.h"
+#include "core/Light.h"
 #include <vector>
 
 #define MAX_LIGHTS 8
@@ -23,8 +23,16 @@ using namespace std;
 
 namespace CubicVR {
     
-    static class Renderer {
-        bool renderMesh(Mesh *obj_in, Camera *camera, mat4 *o_matrix, vector<Light *> *lighting, bool skip_trans, bool skip_solid, bool force_wire, bool force_point) {
+    class Renderer {
+        
+        static void bindMaterial(Material *mat, Mesh *obj_in) {
+            if (obj_in->compiledBuffer->gl_colors)  mat->setVertexColor(obj_in->compiledBuffer->gl_colors);
+            if (obj_in->compiledBuffer->gl_normals)  mat->setVertexNormal(obj_in->compiledBuffer->gl_normals);
+            if (obj_in->compiledBuffer->gl_points)  mat->setVertexPosition(obj_in->compiledBuffer->gl_points);
+            if (obj_in->compiledBuffer->gl_uvs)  mat->setVertexTexCoord(obj_in->compiledBuffer->gl_uvs);
+        }
+        
+        static bool renderMesh(Mesh *obj_in, Camera *camera, mat4 *o_matrix, vector<Light *> *lighting, bool skip_trans, bool skip_solid, bool force_wire, bool force_point) {
             bool has_transparency = false;
             skip_trans = skip_trans || false;
             skip_solid = skip_solid || false;
@@ -129,7 +137,7 @@ namespace CubicVR {
                         // start lighting loop
                         // start inner
                         if (!numLights) {
-                            mat->use(0, 0);
+                            mat->use(LIGHT_NONE, 0, obj_in);
                             glBindVertexArray(obj_in->compiledBuffer->vao);
 
                             mat->setMatrixModelView(camera->getMatrixModelView());
@@ -138,15 +146,16 @@ namespace CubicVR {
                             mat->setMatrixNormal(camera->getMatrixNormal());
                             
                             if (!bound) {
-                                mat->bindObject(obj_in, mat.shader[0][0]);
-                                bound = (mat.shader[0][0].vertexTexCoord != -1);
+                                bindMaterial(mat,obj_in);
+//                                mat->bindObject(obj_in, mat->shader[0][0]);
+//                                bound = (mat->shader[0][0].vertexTexCoord != -1);
 //                                if (lines || points) mat.bindLines(obj_in, mat.shader[0][0]);
                             }
                             
                             //                        if (obj_in.compiled.unrolled) {
                             //                            gl.drawArrays(primitive_type, ofs, len);
                             //                        } else {
-                            glDrawElements(primitive_type, len, GL_UNSIGNED_SHORT, (void*)ofs);
+                            glDrawElements(primitive_type, len, GL_UNSIGNED_INT, (void*)ofs);
                             //                        }
                             
                         } else {
@@ -177,10 +186,10 @@ namespace CubicVR {
                                     }
                                 }
                                 
-                                mat.use(l->getLightType(), nLights);
+                                mat->use(l->getLightType(), nLights, obj_in);
                                 glBindVertexArray(obj_in->compiledBuffer->vao);
                                 
-                                mshader = mat.shader[l->getLightType()][nLights];
+                                mshader = mat->shader[l->getLightType()][nLights];
                                 //                            if (subcount > 0 && mshader.lightAmbient) {
                                 //                                gl.uniform3fv(mshader.lightAmbient, [0,0,0]);
                                 //                            }
@@ -197,12 +206,8 @@ namespace CubicVR {
                                 
                                 if (!bound) {
                                     
-                                    if (obj_in->compiledBuffer->gl_colors)  mat->setVertexColor(obj_in->compiledBuffer->gl_colors);
-                                    if (obj_in->compiledBuffer->gl_normals)  mat->setVertexNormal(obj_in->compiledBuffer->gl_normals);
-                                    if (obj_in->compiledBuffer->gl_points)  mat->setVertexPosition(obj_in->compiledBuffer->gl_points);
-                                    if (obj_in->compiledBuffer->gl_uvs)  mat->setVertexTexCoord(obj_in->compiledBuffer->gl_uvs);
-                                    
-                                    bound = (mshader.vertexTexCoord != -1);
+                                    bindMaterial(mat,obj_in);
+//                                    bound = (mshader->vertexTexCoord != -1);
                                     //                                if (lines || points) mat.bindLines(obj_in, mshader);
                                 }
                                 
@@ -213,7 +218,7 @@ namespace CubicVR {
                                 //                            if (obj_in.compiled.unrolled) {
                                 //                                gl.drawArrays(primitive_type, ofs, len);
                                 //                            } else {
-                                gl.drawElements(primitive_type, len, gl.UNSIGNED_SHORT, ofs);
+                                glDrawElements(primitive_type, len, GL_UNSIGNED_SHORT, (GLvoid *)ofs);
                                 //                            }
                                 // var err = gl.getError();
                                 // if (err) {
@@ -248,26 +253,29 @@ namespace CubicVR {
                 if (!drawn && obj_in->segment_state.isSet(j) && mat->isVisible()) {
                     // this is an exact copy/paste of above
                     // start lighting loop
+                    // start lighting loop
                     // start inner
                     if (!numLights) {
-                        mat.use(0, 0);
+                        mat->use(LIGHT_NONE, 0, obj_in);
+                        glBindVertexArray(obj_in->compiledBuffer->vao);
                         
-                        gl.uniformMatrix4fv(mat.shader[0][0].matrixModelView, false, camera.mvMatrix);
-                        gl.uniformMatrix4fv(mat.shader[0][0].matrixProjection, false, camera.pMatrix);
-                        gl.uniformMatrix4fv(mat.shader[0][0].matrixObject, false, o_matrix);
-                        gl.uniformMatrix3fv(mat.shader[0][0].matrixNormal, false, camera.nMatrix);
+                        mat->setMatrixModelView(camera->getMatrixModelView());
+                        mat->setMatrixProjection(camera->getMatrixProjection());
+                        mat->setMatrixObject(*o_matrix);
+                        mat->setMatrixNormal(camera->getMatrixNormal());
                         
                         if (!bound) {
-                            mat.bindObject(obj_in, mat.shader[0][0]);
-                            bound = (mat.shader[0][0].vertexTexCoord != -1);
-                            if (lines || points) mat.bindLines(obj_in, mat.shader[0][0]);
+                            bindMaterial(mat,obj_in);
+                            //                                mat->bindObject(obj_in, mat->shader[0][0]);
+                            //                                bound = (mat->shader[0][0].vertexTexCoord != -1);
+                            //                                if (lines || points) mat.bindLines(obj_in, mat.shader[0][0]);
                         }
                         
-                        if (obj_in.compiled.unrolled) {
-                            gl.drawArrays(primitive_type, ofs, len);
-                        } else {
-                            gl.drawElements(primitive_type, len, gl.UNSIGNED_SHORT, ofs);
-                        }
+                        //                        if (obj_in.compiled.unrolled) {
+                        //                            gl.drawArrays(primitive_type, ofs, len);
+                        //                        } else {
+                        glDrawElements(primitive_type, len, GL_UNSIGNED_SHORT, (void*)ofs);
+                        //                        }
                         
                     } else {
                         subcount = 0;
@@ -275,57 +283,62 @@ namespace CubicVR {
                         
                         for (subcount = 0; subcount < numLights;) {
                             nLights = numLights - subcount;
-                            if (nLights > base.MAX_LIGHTS) {
-                                nLights = base.MAX_LIGHTS;
+                            if (nLights > MAX_LIGHTS) {
+                                nLights = MAX_LIGHTS;
                             }
                             
                             if (subcount > 0 && !blended) {
-                                gl.enable(gl.BLEND);
-                                gl.blendFunc(gl.ONE, gl.ONE);
-                                gl.depthFunc(gl.EQUAL);
+                                glEnable(GL_BLEND);
+                                glBlendFunc(GL_ONE, GL_ONE);
+                                glDepthFunc(GL_EQUAL);
                                 blended = true;
                             }
                             
-                            mshader = undef;
-                            l = lighting[subcount];
-                            lt = l.light_type;
+                            mshader = NULL;
+                            l = (*lighting)[subcount];
+                            lt = l->getLightType();
                             
                             for (lcount = 0; lcount < nLights; lcount++) {
-                                if (lighting[lcount + subcount].light_type != lt) {
+                                if ((*lighting)[lcount + subcount]->getLightType() != lt) {
                                     nLights = lcount;
                                     break;
                                 }
                             }
                             
-                            mat.use(l.light_type, nLights);
+                            mat->use(l->getLightType(), nLights, obj_in);
+                            glBindVertexArray(obj_in->compiledBuffer->vao);
                             
-                            mshader = mat.shader[l.light_type][nLights];
+                            mshader = mat->shader[l->getLightType()][nLights];
+                            //                            if (subcount > 0 && mshader.lightAmbient) {
+                            //                                gl.uniform3fv(mshader.lightAmbient, [0,0,0]);
+                            //                            }
                             
-                            mshader = mat.shader[l.light_type][nLights];
-                            if (subcount > 0 && mshader.lightAmbient) {
-                                gl.uniform3fv(mshader.lightAmbient, [0,0,0]);
-                            }
+                            mat->setMatrixModelView(camera->getMatrixModelView());
+                            mat->setMatrixProjection(camera->getMatrixProjection());
+                            mat->setMatrixObject(*o_matrix);
+                            mat->setMatrixNormal(camera->getMatrixNormal());
                             
-                            gl.uniformMatrix4fv(mshader.matrixModelView, false, camera.mvMatrix);
-                            gl.uniformMatrix4fv(mshader.matrixProjection, false, camera.pMatrix);
-                            gl.uniformMatrix4fv(mshader.matrixObject, false, o_matrix);
-                            gl.uniformMatrix3fv(mshader.matrixNormal, false, camera.nMatrix);
+                            //                            gl.uniformMatrix4fv(mshader.matrixModelView, false, camera.mvMatrix);
+                            //                            gl.uniformMatrix4fv(mshader.matrixProjection, false, camera.pMatrix);
+                            //                            gl.uniformMatrix4fv(mshader.matrixObject, false, o_matrix);
+                            //                            gl.uniformMatrix3fv(mshader.matrixNormal, false, camera.nMatrix);
                             
                             if (!bound) {
-                                mat.bindObject(obj_in, mshader);
-                                bound = (mshader.vertexTexCoord != -1);
-                                if (lines || points) mat.bindLines(obj_in, mshader);
+                                
+                                bindMaterial(mat,obj_in);
+                                //                                    bound = (mshader->vertexTexCoord != -1);
+                                //                                if (lines || points) mat.bindLines(obj_in, mshader);
                             }
                             
                             for (lcount = 0; lcount < nLights; lcount++) {
-                                lighting[lcount + subcount].setupShader(mshader, lcount);
+                                (*lighting)[lcount + subcount]->setupShader(mshader, lcount);
                             }
                             
-                            if (obj_in.compiled.unrolled) {
-                                gl.drawArrays(primitive_type, ofs, len);
-                            } else {
-                                gl.drawElements(primitive_type, len, gl.UNSIGNED_SHORT, ofs);
-                            }
+                            //                            if (obj_in.compiled.unrolled) {
+                            //                                gl.drawArrays(primitive_type, ofs, len);
+                            //                            } else {
+                            glDrawElements(primitive_type, len, GL_UNSIGNED_INT, ofs);
+                            //                            }
                             // var err = gl.getError();
                             // if (err) {
                             //   var uv = mshader.uniforms["vertexTexCoord"];
@@ -339,8 +352,8 @@ namespace CubicVR {
                         }
                         
                         if (blended) {
-                            gl.disable(gl.BLEND);
-                            gl.depthFunc(gl.LEQUAL);
+                            glDisable(GL_BLEND);
+                            glDepthFunc(GL_LEQUAL);
                         }
                     }
                     

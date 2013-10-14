@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Charles J. Cliffe. All rights reserved.
 //
 
-#include "cubic_math.h"
+#include "math/cubic_math.h"
 
 namespace CubicVR {
     std::ostream& operator<<(std::ostream &strm, const vec4 &v) {

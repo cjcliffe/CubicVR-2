@@ -10,11 +10,11 @@
 #define __CubicVR2__Light__
 
 #include <iostream>
-#include "types.h"
-#include "vec3.h"
-#include "mat4.h"
-#include "mat3.h"
-#include "Camera.h"
+#include "math/types.h"
+#include "math/vec3.h"
+#include "math/mat4.h"
+#include "math/mat3.h"
+#include "core/Camera.h"
 
 #define LIGHT_TYPE_MAX 8
 
@@ -25,7 +25,7 @@ namespace CubicVR {
 
     class Light {
         
-        unsigned int light_type;
+        light_enum light_type;
         unsigned int map_res;
         bool staticLight;
         bool dirty, targeted;
@@ -34,7 +34,7 @@ namespace CubicVR {
         
     public:
         
-        uintSG(Light,LightType,light_type);
+        lightEnumSG(Light,LightType,light_type);
         vec3SG(Light,Diffuse,diffuse);
         vec3SG(Light,Specular,specular);
         vec3SG(Light,Position,position);

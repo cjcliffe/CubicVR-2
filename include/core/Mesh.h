@@ -12,12 +12,12 @@
 #include <iostream>
 #include <vector>
 #include <map>
-#include "Material.h"
-#include "vec3.h"
-#include "vec2.h"
-#include "aabb.h"
-#include "triangle.h"
-#include "BitSet.h"
+#include "opengl/Material.h"
+#include "math/vec3.h"
+#include "math/vec2.h"
+#include "math/aabb.h"
+#include "math/triangle.h"
+#include "core/BitSet.h"
 
 using namespace std;
 namespace CubicVR {

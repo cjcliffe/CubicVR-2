@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Charles J. Cliffe. All rights reserved.
 //
 
-#include "Material.h"
-#include "Mesh.h"
+#include "opengl/Material.h"
+#include "core/Mesh.h"
 
 namespace CubicVR {
     

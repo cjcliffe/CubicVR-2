@@ -12,8 +12,8 @@
 #include <iostream>
 #include <map>
 #include <vector>
-#include "Shader.h"
-#include "Light.h"
+#include "opengl/Shader.h"
+#include "core/Light.h"
 #include "utility.h"
 
 #define MAX_LIGHTS 8

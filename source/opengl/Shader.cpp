@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Charles J. Cliffe. All rights reserved.
 //
 
-#include "Shader.h"
+#include "opengl/Shader.h"
 #include "utility.h"
 
 
