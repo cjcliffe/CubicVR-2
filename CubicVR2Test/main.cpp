@@ -12,8 +12,7 @@
 #include "MeshTest.h"
 #include "ShaderRenderTest.h"
 //#include <GLUT/GLUT.h>
-#define GLFW_INCLUDE_GLCOREARB
-#define GLFW_INCLUDE_GL3
+#define GLFW_INCLUDE_GLCOREARB
 #include <GLFW/glfw3.h>
 
 int main(int argc, char * argv[])

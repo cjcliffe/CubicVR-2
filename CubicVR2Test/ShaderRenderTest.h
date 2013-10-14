@@ -15,7 +15,6 @@
 #include "Mesh.h"
 #include "Camera.h"
 #define GLFW_INCLUDE_GLCOREARB
-#define GLFW_INCLUDE_GL3
 #include <GLFW/glfw3.h>
 
 //#include <GLUT/glut.h>
