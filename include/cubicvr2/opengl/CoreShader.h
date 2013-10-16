@@ -12,9 +12,9 @@
 #include <iostream>
 #include <map>
 #include <vector>
-#include "opengl/Shader.h"
-#include "core/Light.h"
-#include "utility.h"
+#include "cubicvr2/opengl/Shader.h"
+#include "cubicvr2/core/Light.h"
+#include "cubicvr2/utility.h"
 
 #define MAX_LIGHTS 8
 #define SHADER_TEXTURE_COLOR        1
@@ -66,7 +66,10 @@ namespace CubicVR {
         shaderUniformVec3 lightAmbient;
         
         shaderVariables vars;
-
+        
+        vector<float> lightIntensityValues;
+        vector<float> lightDistanceValues;
+        
         CoreShaderVars() : materialAlpha(1.0f), materialShininess(1.0f), envAmount(1.0f), pointSize(0), materialTexOffset(0,0),
         materialColor(0.5f,0.5f,0.5f), materialDiffuse(1, 1, 1), materialSpecular(0.1f, 0.1f, 0.1f), materialAmbient( 0, 0, 0 ) {
             
@@ -116,8 +119,8 @@ namespace CubicVR {
             lightSpecular.init(*shader);
             lightDiffuse.init(*shader);
             lightPosition.init(*shader);
-            lightIntensity.init(*shader);
-            lightDistance.init(*shader);
+//            lightIntensity.init(*shader);
+//            lightDistance.init(*shader);
         }
         
         void setValues(Material *mat);

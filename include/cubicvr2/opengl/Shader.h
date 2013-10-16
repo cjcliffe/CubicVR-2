@@ -14,13 +14,13 @@
 #include <sstream>
 #include <vector>
 
-#include "opengl_support.h"
-#include "math/types.h"
-#include "math/vec2.h"
-#include "math/vec3.h"
-#include "math/vec4.h"
-#include "math/mat3.h"
-#include "math/mat4.h"
+#include "cubicvr2/opengl/opengl_support.h"
+#include "cubicvr2/math/types.h"
+#include "cubicvr2/math/vec2.h"
+#include "cubicvr2/math/vec3.h"
+#include "cubicvr2/math/vec4.h"
+#include "cubicvr2/math/mat3.h"
+#include "cubicvr2/math/mat4.h"
 //#include "GLUT/glut.h"
 
 namespace CubicVR {
@@ -470,22 +470,21 @@ return *this; \
     
     // GL_FLOAT_VEC3
     struct shaderUniformFloatVector : shaderVariable {
-        vector<shaderUniformFloat> values;
-        shaderUniformFloat &get(unsigned int idx) {
-            if (values.size() < size) {
-                values.resize(size);
-            }
-            return values[(unsigned long)idx];
+        GLfloat *values;
+        GLfloat *get() {
+            return values;
+        }
+        void set(GLfloat *values_in) {
+            values = values_in;
         }
         void update() {
             if (!size) return;
-            for (unsigned int i = 0; i < size; i++) {
-                this->get(i).update();
-            }
+
+            glUniform1fv(index, size, values);
+            
+            checkError(1010);
         }
-        void init(Shader &shader) {
-            //TODO: this
-        }
+        
         shaderAssign(shaderUniformFloatVector)
     };
     

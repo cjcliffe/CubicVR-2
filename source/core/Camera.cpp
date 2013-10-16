@@ -6,4 +6,4 @@
 //  Created by Charles J. Cliffe on 2013-03-05.
 //  Copyright (c) 2013 Charles J. Cliffe. All rights reserved.
 //
-#include "core/Camera.h"
+#include "cubicvr2/core/Camera.h"

@@ -6,4 +6,4 @@
 //  Copyright (c) 2013 Charles J. Cliffe. All rights reserved.
 //
 
-#include "core/Light.h"
+#include "cubicvr2/core/Light.h"

@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Charles J. Cliffe. All rights reserved.
 //
 
-#include "opengl/Shader.h"
-#include "utility.h"
+#include "cubicvr2/opengl/Shader.h"
+#include "cubicvr2/utility.h"
 
 
 namespace CubicVR {

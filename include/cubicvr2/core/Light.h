@@ -10,11 +10,11 @@
 #define __CubicVR2__Light__
 
 #include <iostream>
-#include "math/types.h"
-#include "math/vec3.h"
-#include "math/mat4.h"
-#include "math/mat3.h"
-#include "core/Camera.h"
+#include "cubicvr2/math/types.h"
+#include "cubicvr2/math/vec3.h"
+#include "cubicvr2/math/mat4.h"
+#include "cubicvr2/math/mat3.h"
+#include "cubicvr2/core/Camera.h"
 
 #define LIGHT_TYPE_MAX 8
 
