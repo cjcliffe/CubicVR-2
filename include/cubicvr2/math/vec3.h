@@ -13,6 +13,11 @@
 #include "types.h"
 #include <cmath>
 
+#ifdef _WIN32
+#define _USE_MATH_DEFINES
+#include <math.h>
+#endif
+
 namespace CubicVR {
     
 #define vec3SG(c,x,y) \

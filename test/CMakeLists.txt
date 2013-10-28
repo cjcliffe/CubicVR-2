@@ -11,12 +11,17 @@ include_directories(${PROJECT_SOURCE_DIR}/../external/glfw-3.0.3/include)
 include_directories ( "${PROJECT_SOURCE_DIR}/../build/include" )
 link_directories ( "${PROJECT_SOURCE_DIR}/../build/lib" )
 
+
 SET (test_sources
     main.cpp
     MathTest.cpp
+    MathTest.h
     MeshTest.cpp
+    MeshTest.h
     ShaderRenderTest.cpp
+    ShaderRenderTest.h
     ShaderTest.cpp
+    ShaderTest.h
 )
 
 

@@ -11,9 +11,9 @@
 
 #include <iostream>
 #include <cstring>
-#include "math/cubic_math.h"
-#include "core/Mesh.h"
-#include "core/Camera.h"
+#include "cubicvr2/math/cubic_math.h"
+#include "cubicvr2/core/Mesh.h"
+#include "cubicvr2/core/Camera.h"
 
 namespace CubicVR {
     using namespace std;

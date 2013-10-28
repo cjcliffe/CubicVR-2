@@ -25,7 +25,7 @@
 #include <cubicvr2/core/Timer.h>
 
 #ifdef _WIN32
-	#include <mmsystem.h>
+	#include <windows.h>
 #endif
 
 namespace CubicVR {
@@ -63,7 +63,7 @@ void Timer::reset(void)
 
 void Timer::lockFramerate(float f_rate)
 {
-	lock_rate = 1.0/f_rate;
+	lock_rate = (unsigned long)((1.0/f_rate)*1000.0);
 	lock_state = true;
 }
 

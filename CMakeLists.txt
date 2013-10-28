@@ -52,6 +52,14 @@ SET (CubicVR_HDRS
     include/cubicvr2/utility.h
 )
 
+if (DEFINED WIN32)
+	include_directories(external/glew-1.10.0/include)
+	SET (CubicVR_SRCS ${CubicVR_SRCS} external/glew-1.10.0/src/glew.c)
+	SET (CubicVR_HDRS ${CubicVR_HDRS} external/glew-1.10.0/include/GL/glew.h)
+	FILE(GLOB cubicvr_glew_files "${CMAKE_CURRENT_SOURCE_DIR}/external/glew-1.10.0/include/GL/*.h")
+	INSTALL(FILES ${cubicvr_glew_files} DESTINATION include/GL/)
+endif (DEFINED WIN32)
+
 
 add_library(cubicvr2 
   ${CubicVR_SRCS}

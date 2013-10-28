@@ -9,16 +9,19 @@
 #ifndef __CubicVR2__ShaderRenderTest__
 #define __CubicVR2__ShaderRenderTest__
 
+
 #include <iostream>
-#include "opengl/Shader.h"
-#include "opengl/Material.h"
-#include "core/Mesh.h"
-#include "core/Camera.h"
-#define GLFW_INCLUDE_GLCOREARB
+#include "cubicvr2/opengl/Shader.h"
+#include "cubicvr2/opengl/Material.h"
+#include "cubicvr2/core/Mesh.h"
+#include "cubicvr2/core/Camera.h"
+#ifdef _WIN32
+#define GLFW_INCLUDE_NONE
+#else
+#define GLFW_INCLUDE_GLCOREARB
+#endif
 #include <GLFW/glfw3.h>
 
-//#include <GLUT/glut.h>
-#pragma once
 
 namespace CubicVR {
     

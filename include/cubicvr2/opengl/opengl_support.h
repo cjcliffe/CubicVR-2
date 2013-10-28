@@ -9,8 +9,14 @@
 #ifndef CubicVR2_opengl_h
 #define CubicVR2_opengl_h
 
-#include <OpenGL/gl3.h> 
-#include <OpenGL/gl3ext.h>
+#ifdef WIN32
+	#define GLEW_STATIC
+	#include <GL/glew.h>
+#else
+	#include <OpenGL/gl3.h> 
+	#include <OpenGL/gl3ext.h>
+#endif
+
 #include <string>
 
 namespace CubicVR {

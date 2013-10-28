@@ -12,17 +12,15 @@
 #include "MeshTest.h"
 #include "ShaderRenderTest.h"
 //#include <GLUT/GLUT.h>
-#define GLFW_INCLUDE_GLCOREARB
+#ifdef _WIN32
+	#define GLFW_INCLUDE_NONE
+#else
+	#define GLFW_INCLUDE_GLCOREARB
+#endif
 #include <GLFW/glfw3.h>
 
 int main(int argc, char * argv[])
 {
-//    glutInit(&argc, argv);
-//    glutInitWindowPosition(-1,-1);
-//    glutInitWindowSize(800, 600);
-//    glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH | GLUT_3_2_CORE_PROFILE);
-//    glutCreateWindow("CubicVR2 Shader Test");
-
     if (!glfwInit())
         return -1;
 
@@ -32,7 +30,7 @@ int main(int argc, char * argv[])
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     
     GLFWwindow *window = glfwCreateWindow(640, 480, "CubicVR-2 Test", NULL, NULL);
-    
+	
     if (!window)
     {
         glfwTerminate();
@@ -41,7 +39,16 @@ int main(int argc, char * argv[])
     
     glfwMakeContextCurrent(window);
 
-   
+#ifdef _WIN32
+	glewExperimental = true;
+	GLenum err = glewInit();
+	if (GLEW_OK != err)
+	{
+		fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
+		return -1;
+	}
+#endif
+
     MathTest test1;
     
     test1.run();

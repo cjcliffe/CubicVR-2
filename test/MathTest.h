@@ -12,7 +12,7 @@
 #include <iostream>
 #include <sstream>
 
-#include "math/cubic_math.h"
+#include "cubicvr2/math/cubic_math.h"
 
 using namespace CubicVR;
 using namespace std;

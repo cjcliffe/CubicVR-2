@@ -10,11 +10,10 @@
 #define __CubicVR2__ShaderTest__
 
 #include <iostream>
-#include "math/cubic_math.h"
-#include "opengl/Shader.h"
-//#include <GLUT/glut.h>
-#include "core/Camera.h"
-#include "opengl/Material.h"
+#include "cubicvr2/math/cubic_math.h"
+#include "cubicvr2/opengl/Shader.h"
+#include "cubicvr2/core/Camera.h"
+#include "cubicvr2/opengl/Material.h"
 
 using namespace CubicVR;
 using namespace std;

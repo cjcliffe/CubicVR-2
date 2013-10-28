@@ -32,7 +32,7 @@ private:
 
 	bool paused_state;
 	bool lock_state;
-	float lock_rate;
+	unsigned long lock_rate;
 
 public:
 
