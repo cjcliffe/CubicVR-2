@@ -136,7 +136,8 @@ namespace CubicVR {
                 case GL_UNSIGNED_INT_VEC2: return "GL_UNSIGNED_INT_VEC2";
                 case GL_UNSIGNED_INT_VEC3: return "GL_UNSIGNED_INT_VEC3";
                 case GL_UNSIGNED_INT_VEC4: return "GL_UNSIGNED_INT_VEC4";
-                case GL_SAMPLER_2D: return "GL_SAMPLER_2D";
+				case GL_SAMPLER_1D: return "GL_SAMPLER_1D";
+				case GL_SAMPLER_2D: return "GL_SAMPLER_2D";
                 case GL_SAMPLER_3D: return "GL_SAMPLER_3D";
             }
             return "UNKNOWN?";
