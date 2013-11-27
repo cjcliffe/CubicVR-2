@@ -19,6 +19,9 @@ SET(CubicVR_SRCS
     source/opengl/opengl_support.cpp
     # source/opengl/Renderer.cpp
     source/opengl/Shader.cpp
+	source/opengl/Texture.cpp
+	
+    source/image/lodepng.cpp
 )
 
 SET (CubicVR_HDRS    
@@ -48,8 +51,11 @@ SET (CubicVR_HDRS
     include/cubicvr2/opengl/opengl_support.h
     # include/cubicvr2/opengl/Renderer.h
     include/cubicvr2/opengl/Shader.h
+    include/cubicvr2/opengl/Texture.h
     
     include/cubicvr2/utility.h
+
+    include/cubicvr2/image/lodepng.h
 )
 
 if (DEFINED WIN32)
@@ -77,6 +83,10 @@ INSTALL(FILES ${cubicvr_header_files2} DESTINATION include/cubicvr2/math/)
 
 FILE(GLOB cubicvr_header_files2 "${CMAKE_CURRENT_SOURCE_DIR}/include/cubicvr2/opengl/*.h")
 INSTALL(FILES ${cubicvr_header_files2} DESTINATION include/cubicvr2/opengl/)
+
+FILE(GLOB cubicvr_header_files3 "${CMAKE_CURRENT_SOURCE_DIR}/include/cubicvr2/image/*.h")
+INSTALL(FILES ${cubicvr_header_files3} DESTINATION include/cubicvr2/image/)
+
 
 INSTALL(TARGETS cubicvr2
   ARCHIVE DESTINATION lib/
