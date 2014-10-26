@@ -12,8 +12,6 @@
 #include <iostream>
 #include <vector>
 #include <map>
-#include <algorithm>
-
 #include "cubicvr2/opengl/Material.h"
 #include "cubicvr2/math/vec3.h"
 #include "cubicvr2/math/vec2.h"
@@ -313,7 +311,7 @@ namespace CubicVR {
         vector<unsigned long> segments;
         compiledVBOElementsRef elements_ref;
         aabb bounds;
-        compiledVBOBuffer() : gl_points(0), gl_normals(0), gl_uvs(0), gl_colors(0), gl_elements(0), vao(0) {
+        compiledVBOBuffer() : gl_points(0), gl_normals(0), gl_uvs(0), gl_colors(0), gl_elements(0) {
             
         }
     };
@@ -361,7 +359,7 @@ namespace CubicVR {
         compiledVBOBuffer *compiledBuffer;
         BitSet segment_state;
 
-        Mesh() : currentFace(-1), compiledBuffer(0), currentMaterial(0), currentSegment(0), genNormals(true), dynamic(false), pointMode(false), buildWireframe(false),
+        Mesh() : currentFace(-1), currentMaterial(0), currentSegment(0), genNormals(true), dynamic(false), pointMode(false), buildWireframe(false),
             triangulateWireframe(false), wireframeMaterial(NULL), pointModeMaterial(NULL), wireframe(false), compileMap_(NULL) {
         }
 //    showAllSegments: function () {

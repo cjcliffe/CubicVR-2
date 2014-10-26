@@ -10,7 +10,6 @@
 #define __CubicVR2__mat3__
 
 #include <iostream>
-#include <cstring>
 #include "vec3.h"
 
 namespace CubicVR {
@@ -22,15 +21,15 @@ namespace CubicVR {
     struct mat3 {
         __float a,b,c,d,e,f,g,h,i;
 
-// 	      __float  operator [] (unsigned i) const { return ((__float *)this)[i]; }
-//        __float& operator [] (unsigned i)       { return ((__float *)this)[i]; }
+        //        __float  operator [] (unsigned i) const { return ((__float *)this)[i]; }
+        __float& operator [] (unsigned i)       { return ((__float *)this)[i]; }
         operator __float*() const { return (__float *)this; }
         
         mat3(__float ai,__float bi,__float ci,__float di,__float ei,__float fi,__float gi,__float hi,__float ii) {
             a = ai; b = bi; c = ci; d = di; e = ei; f = fi; g = gi; h = hi; i = ii;
         };
         
-        mat3() { a=b=c=d=e=f=g=h=i=0; }
+        mat3() { memset((__float *)this, 0, sizeof(mat3)); }
         //        mat3 operator* (mat4 m) { return mat3::multiply(*this,m); };
         //        void operator*= (mat4 m) { *this = mat3::multiply(*this,m); };
  

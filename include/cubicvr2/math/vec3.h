@@ -34,7 +34,7 @@ namespace CubicVR {
         __float& g() { return y; }
         __float& b() { return z; }
         
-        //__float& operator [] (unsigned i)       { return ((__float *)this)[i]; }
+        __float& operator [] (unsigned i)       { return ((__float *)this)[i]; }
         vec3 (__float xi,__float yi,__float zi) { x = xi; y = yi; z = zi; }
         vec3 () { x = y = z = 0.0f; }
         

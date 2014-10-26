@@ -25,7 +25,7 @@ namespace CubicVR {
         __float& v() { return y; }
         
 //        __float  operator [] (unsigned i) const { return ((__float *)this)[i]; }
-//        __float& operator [] (unsigned i)       { return ((__float *)this)[i]; }
+        __float& operator [] (unsigned i)       { return ((__float *)this)[i]; }
         
         vec2 (__float xi,__float yi) { x = xi; y = yi;  }
         vec2 () { x = y = 0.0f; }
