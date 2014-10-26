@@ -28,7 +28,7 @@ namespace CubicVR {
         __float& a() { return w; }
         
 //        __float  operator [] (unsigned i) const { return ((__float *)this)[i]; }
-        __float& operator [] (unsigned i)       { return ((__float *)this)[i]; }
+//        __float& operator [] (unsigned i)       { return ((__float *)this)[i]; }
         
         vec4 (__float xi,__float yi,__float zi,__float wi) { x = xi; y = yi; z = zi; w = wi; }
         vec4 () { x = y = z = w =  0.0f; }

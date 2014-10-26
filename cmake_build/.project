@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>cubicvr2-Release@cmake_build</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.cdt.make.core.makeBuilder</name>
+			<triggers>clean,full,incremental,</triggers>
+			<arguments>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.cleanBuildTarget</key>
+					<value>clean</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.enableCleanBuild</key>
+					<value>true</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.append_environment</key>
+					<value>true</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.stopOnError</key>
+					<value>true</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.enabledIncrementalBuild</key>
+					<value>true</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.build.command</key>
+					<value>C:/MinGW/bin/mingw32-make.exe</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.contents</key>
+					<value>org.eclipse.cdt.make.core.activeConfigSettings</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.build.target.inc</key>
+					<value>all</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.build.arguments</key>
+					<value></value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.buildLocation</key>
+					<value>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/cmake_build</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.useDefaultBuildCmd</key>
+					<value>false</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.environment</key>
+					<value>VERBOSE=1|CMAKE_NO_VERBOSE=1|</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.enableFullBuild</key>
+					<value>true</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.build.target.auto</key>
+					<value>all</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.enableAutoBuild</key>
+					<value>false</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.build.target.clean</key>
+					<value>clean</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.fullBuildTarget</key>
+					<value>all</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.buildArguments</key>
+					<value></value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.build.location</key>
+					<value>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/cmake_build</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.autoBuildTarget</key>
+					<value>all</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.core.errorOutputParser</key>
+					<value>org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GLDErrorParser;</value>
+				</dictionary>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.cdt.make.core.ScannerConfigBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.cdt.make.core.makeNature</nature>
+		<nature>org.eclipse.cdt.make.core.ScannerConfigNature</nature>
+		<nature>org.eclipse.cdt.core.ccnature</nature>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>[Subprojects]</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Source Files/BitSet.cpp</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/source/core/BitSet.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Source Files/Camera.cpp</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/source/core/Camera.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Source Files/Light.cpp</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/source/core/Light.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Source Files/Mesh.cpp</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/source/core/Mesh.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Source Files/Timer.cpp</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/source/core/Timer.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Source Files/cubic_math.cpp</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/source/math/cubic_math.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Source Files/CoreShader.cpp</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/source/opengl/CoreShader.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Source Files/Material.cpp</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/source/opengl/Material.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Source Files/opengl_support.cpp</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/source/opengl/opengl_support.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Source Files/Shader.cpp</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/source/opengl/Shader.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Source Files/Texture.cpp</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/source/opengl/Texture.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Source Files/lodepng.cpp</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/source/image/lodepng.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Source Files/glew.c</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/external/glew-1.10.0/src/glew.c</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/BitSet.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/core/BitSet.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/Camera.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/core/Camera.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/Light.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/core/Light.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/Mesh.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/core/Mesh.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/Timer.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/core/Timer.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/aabb.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/math/aabb.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/cubic_math.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/math/cubic_math.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/frustum.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/math/frustum.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/mat3.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/math/mat3.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/mat4.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/math/mat4.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/plane.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/math/plane.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/quaternion.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/math/quaternion.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/sphere.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/math/sphere.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/transform.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/math/transform.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/triangle.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/math/triangle.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/types.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/math/types.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/vec2.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/math/vec2.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/vec3.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/math/vec3.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/vec4.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/math/vec4.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/CoreShader.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/opengl/CoreShader.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/Material.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/opengl/Material.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/opengl_support.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/opengl/opengl_support.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/Shader.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/opengl/Shader.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/Texture.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/opengl/Texture.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/utility.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/utility.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/lodepng.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/include/cubicvr2/image/lodepng.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Header Files/glew.h</name>
+			<type>1</type>
+			<location>C:/Users/CharlesJ/workspace-cdt/CubicVR-2/external/glew-1.10.0/include/GL/glew.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] cubicvr2/Object Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>

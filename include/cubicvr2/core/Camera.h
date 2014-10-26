@@ -57,8 +57,8 @@ namespace CubicVR {
                 
         stringSG(Camera,Name,name);
         
-        Camera() : position(0,0,-1), rotation(0,0,0), target(0,0,0), fov(60.0f), nearclip(0.1f), farclip(400), targeted(true), calc_nmatrix(true), name(""),
-        width(512), height(512), ortho(false) {
+        Camera() : position(0,0,-1), rotation(0,0,0), target(0,0,0), fov(60.0f), nearclip(0.1f), farclip(400), targeted(true), parented(false), calc_nmatrix(true), name(""),
+        width(512), height(512), ortho(false), aspect(1.0) {
         };
         
         

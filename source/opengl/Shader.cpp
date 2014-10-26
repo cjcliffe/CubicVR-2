@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Charles J. Cliffe. All rights reserved.
 //
 
+#include <malloc.h>
+
 #include "cubicvr2/opengl/Shader.h"
 #include "cubicvr2/utility.h"
 
@@ -17,6 +19,10 @@ namespace CubicVR {
         fragmentLog = NULL;
         linkLog = NULL;
         compiled = false;
+        fragmentShader = NULL;
+        vertexShader = NULL;
+        program = NULL;
+        vao = NULL;
     }
     
     Shader::Shader(string vertex, string fragment)  {
